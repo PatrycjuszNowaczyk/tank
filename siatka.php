@@ -63,6 +63,7 @@ createBoard($gameBoardSize);
             var url = "http://localhost/phppc/index11.php/products/";
             $.ajax({
                 method: "GET",
+
                 url: url, success: function(result){
                     $("#show").html(result);
                     $("button.delete").on('click', function() {

@@ -3,51 +3,78 @@
     <title>TANK</title>
 </head>
 <body>
-<?php
-
-if (isset($_GET['game'])) {
-    if ($_GET['game'] == 'start') {
-        $playerName = array('name' => 'Drużyna 4');
-        $ch = curl_init('http://tank.iai.ninja/api/join-current-game.php');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $playerName);
-        $result = curl_exec($ch);
-        var_dump(json_decode($result, true));
-        curl_close($ch);
-    }
-}
-?>
+<H1>Czołgi</H1>
+<button id="start">Zacznij gre</button>
+<div id="show1">
+</div>
+<button id="board">Pokaż plansze</button>
+<div id="show2">
+</div>
 <br><br><br>
-<?php
-if (isset($_GET['board'])) {
-    if ($_GET['board'] == 'get') {
-        $ch = curl_init('http://tank.iai.ninja/api/get-current-board.php');
-        curl_setopt($ch, CURLOPT_URL, "http://tank.iai.ninja/api/get-current-board.php");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        $jsonResponse = curl_exec($ch);
-        $response = json_decode($jsonResponse, true);
-
-        $gameId = $response['id'];
-        $gameName = $response['name'];
-        $gameBoardSize = $response['settings']['boardSize'];
-
-        $gameBoard = $response['board'];
-
-        ?><table><tr><?php
-        foreach($gameBoard as $gb){
-            echo '<td>'.$gb['position'].'</td>';
-        }
-        ?></tr></table><?php
-        echo 'Nazwa gry: ' . $gameName . '<br>';
-        echo 'plansza:' . $gameBoardSize;
-
-        //require_once('siatka.php');
-    }
-}
-?>
+<table>
+    <tr>
+        <td></td>
+        <td>
+            <button type="button" id="n" value="n">N</button>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" id="w" value="w">W</button>
+        </td>
+        <td></td>
+        <td>
+            <button type="button" id="e" value="e">E</button>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button type="button" id="s" value="s">S</button>
+        </td>
+        <td></td>
+    </tr>
+</table>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    // $(document).ready(function(){
+    $('#n,#w,#e,#s').on('click', function () {
+        let url = 'tank.iai.ninja/api/make-move.php';
+        let dir = $(this).val();
+        let key = 'asdasa312313asdasas23';
+        let moveData = '[{"key":"' + key + '","direction":"' + dir + '","distance":"3","fire": "false"}]';
+        alert(moveData);
+        $.ajax({
+            method: "POST",
+            data: moveData,
+            url: url, success: function (result) {
+                //$("#show").html(result);
+            }
+        });
+    });
+    $('#start').on('click', function () {
+        $.ajax({
+            method: "GET",
+            url: "http://localhost/tank/startgame.php", success: function (result) {
+                $('#show1').text(result);
+            }
+        });
+    })
+    $('#board').on('click', function () {
+        $.ajax({
+            method: "GET",
+            url: "http://localhost/tank/board.php", success: function (result) {
+                //let d = d.parseHTML(result);
+                //$('#show2').text(result);
+                //let dd = let ddd.parse
+                //console.log(result);
+                $('#show2').html(result);
+            }
+        });
+    })
+    // });
+</script>
 </body>
 </html>
 
