@@ -1,8 +1,4 @@
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="table.css">
-</head>
-</html>
+
 <?php
 $ch = curl_init('http://tank.iai.ninja/api/get-current-board.php');
 curl_setopt($ch, CURLOPT_URL, "http://tank.iai.ninja/api/get-current-board.php");

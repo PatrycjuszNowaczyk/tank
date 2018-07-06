@@ -1,13 +1,15 @@
 <html>
 <head>
     <title>TANK</title>
+    <link rel="stylesheet" type="text/css" href="table.css">
+
 </head>
 <body>
 <H1>Czołgi</H1>
-<button id="start">Zacznij gre</button>
+<button id="start">Zacznij grę</button>
 <div id="show1">
 </div>
-<button id="board">Pokaż plansze</button>
+<button id="board">Pokaż planszę</button>
 <div id="show2">
 </div>
 <br><br><br>
@@ -78,5 +80,3 @@ Strzelac?(true/false):<input type="text" id="fire"><br>
 </script>
 </body>
 </html>
-
-
