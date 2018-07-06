@@ -70,7 +70,7 @@ function createBoard($size) {
 
 
 createBoard($gameBoardSize);
-createBoard(40);
+//createBoard(40);
 
 ?>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -80,7 +80,6 @@ createBoard(40);
             var url = "http://localhost/phppc/index11.php/products/";
             $.ajax({
                 method: "GET",
-
                 url: url, success: function(result){
                     $("#show").html(result);
                     $("button.delete").on('click', function() {
