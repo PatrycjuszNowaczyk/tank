@@ -7,5 +7,4 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_POSTFIELDS, $playerName);
 $result = curl_exec($ch);
 var_dump(json_decode($result, true));
-//var_dump(json_encode($result));
 curl_close($ch);

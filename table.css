@@ -1,21 +1,22 @@
 td {
-  width: 25px;
-  height: 25px;
-  border-collapse: collapse;
-  border: 1px solid black;
-  vertical-align: top;
+    width: 25px;
+    height: 25px;
+    border-collapse: collapse;
+    border: 1px solid black;
+    vertical-align: top;
 
 }
-.player{
-background-color: red;
+
+.player {
+    background-color: red;
 }
 
-.player1{
-  background-color: blue;
+.player1 {
+    background-color: blue;
 }
 
-.player_base{
-background-color: #578463;
+.player_base {
+    background-color: #578463;
 }
 
 .obstacle {
@@ -31,9 +32,11 @@ background-color: #578463;
     border: 1px solid rgba(0, 0, 0, 0.8);
     width: 25px;
     height: 25px;
-    text-align: center;}
-.missile{
-  background-color: #555555;
+    text-align: center;
+}
+
+.missile {
+    background-color: #555555;
 }
 
 .empty {
