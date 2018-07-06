@@ -9,21 +9,22 @@ $response = json_decode($jsonResponse, true);
 $gameId = $response['id'];
 $gameName = $response['name'];
 $gameBoardSize = $response['settings']['boardSize'];
-
+$size=$gameBoardSize;
 $gameBoard = $response['board'];
 $gameBoardNew = array();
+
 foreach ($gameBoard as $val) {
   $gameBoardNew[$val['position']] = $val['type'];
 }
 
 echo '<pre>';
-//print_r($gameBoardNew);
+print_r(array_unique($gameBoardNew));
 echo '</pre>';
 
 $tablica = array();
 $color = 'white';
 
-function createBoard($size) {
+
 
     $table = '';
     $id = '';
@@ -52,10 +53,10 @@ function createBoard($size) {
         foreach ($letters as $col) {
             $tablica[$col][$row] = $col . $row;
             $id = $col . $row;
-            echo $id;
             $style = $gameBoardNew[$id];
-
-            $table .= '<td id="'. $id .'" class="' . $class . '" style="width: 25px; height: 25px;  border-collapse: collapse; border: 1px solid black; vertical-align: ';
+//$style
+// var_Dump($id );
+            $table .= '<td id="'. $id . '_'.'" class="' . $class . '" style="width: 25px; height: 25px;  border-collapse: collapse; border: 1px solid black; vertical-align: ';
             $table .= 'top">' . $tablica[$col][$row] . '</td>';
         }
         $table .= "</tr>";
@@ -68,10 +69,10 @@ function createBoard($size) {
 
 
     echo $table;
-}
 
 
-createBoard($gameBoardSize);
+
+
 //createBoard(40);
 
 ?>
