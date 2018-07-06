@@ -18,7 +18,24 @@ function createBoard($size) {
     $table .= '<table style="border-collapse: collapse">';
     foreach (range(1, $size) as $row) {
         $table .= "<tr>";
-        foreach (range('A', chr($size-1+ord('A'))) as $col) {
+		
+		$letters = array();
+		$lastLetter = chr($size-1+ord('A'));
+		
+		if (ord($lastLetter) > ord('Z')) {
+			$letters = range('A', 'Z');
+			foreach(range('A', 'Z') as $letter1) {
+				foreach(range('A', 'Z') as $letter2) {
+					$letters[] = $letter1 . $letter2;
+					$letters = array_slice($letters, 0, $size);
+				}
+			}
+		}
+		else {
+			$letters = range('A', chr($size-1+ord('A')));
+		}
+		
+        foreach ($letters as $col) {
             $tablica[$col][$row] = $col . $row;
             $table .= '<td style="width: 25px; height: 25px;  border-collapse: collapse; border: 1px solid black; vertical-align: ';
             $table .= 'top">' . $tablica[$col][$row] . '</td>';
@@ -53,7 +70,7 @@ function createBoard($size) {
 
 
 createBoard($gameBoardSize);
-//createBoard(20);
+createBoard(40);
 
 ?>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
