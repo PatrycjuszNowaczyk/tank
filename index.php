@@ -48,12 +48,12 @@
         <option value="2">2</option>
         <option value="3">3</option>
     </select>
-        <br> STRZELAĆ?
+        <br> STRZELAĆ? (1 TAK, 0 - NIE)
         <select name="fire">
         <option value="1">1</option>
         <option value="0">0</option>
     </select>
-        <button type="submit">submit</button>
+        <button type="submit">Wykonaj ruch!</button>
     </form>
     <style>
         body {
@@ -72,7 +72,7 @@
             margin: 5px;
         }
         
-        input {
+        input,select {
             background-color: #f2f1f0;
             padding: 10px;
             padding-left: 15px;
