@@ -12,9 +12,12 @@ $gameBoardSize = $response['settings']['boardSize'];
 $size=$gameBoardSize;
 $gameBoard = $response['board'];
 $gameBoardNew = array();
+$gamers = array()
 
 foreach ($gameBoard as $val) {
   $gameBoardNew[$val['position']] = $val['type'];
+  $gamers = $val['name'];
+  $gamers = array_unique($gamers);
 }
 
 echo '<pre>';
