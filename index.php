@@ -2,7 +2,7 @@
 <head>
     <title>TANK</title>
 </head>
-<body>
+<body style="color: #555659;background-color:#f2f1f0;">
 <H1>Czołgi</H1>
 <button id="start">Zacznij gre</button>
 <div id="show1">
@@ -11,11 +11,14 @@
 <div id="show2">
 </div>
 <br><br><br>
+<iframe src="http://tank.iai.ninja/board.php" width="600px" height="600px"></iframe>
+
+<form action="POST" name="move" id="move">
 <table>
     <tr>
         <td></td>
         <td>
-            <button type="button" id="n" value="n">N</button>
+            <input type="button" value="n" id="n">N</input>
         </td>
         <td></td>
     </tr>
@@ -36,14 +39,65 @@
         <td></td>
     </tr>
 </table>
-Klucz:<input type="text" id="key"><br>
-Dystans:<input type="text" id="distance"><br>
-Strzelac?(true/false):<input type="text" id="fire"><br>
+    Kierunek:<input type="text" name="direction"><br>
+Klucz:<input type="text" name="key"><br>
+    Dystans:
+    <select name="distance">
+        <option value="1">Ruch o 1</option>
+        <option value="2">Ruch o 2</option>
+        <option value="3">Najdalszy dystans strzału</option>
+    </select>
+    <br>
+    STRZELAĆ?
+    <select name="distance">
+        <option value="1">TAK</option>
+        <option value="0">NIE</option>
+    </select>
+    <button type="submit">submit</button>
+</form>
+<style>
+    button{
+        background-color: #f2f1f0;
+        padding:10px;
+        padding-left:15px;
+        padding-right:15px;
+        margin:auto;
+        border: 1px solid rgb(192,191,190);
+        border-radius: 3px;
+        margin: 5px;
+    }
+    input{
+        background-color: #f2f1f0;
+        padding:10px;
+        padding-left:15px;
+        padding-right:15px;
+        margin:auto;
+        border: 1px solid rgb(192,191,190);
+        border-radius: 3px;
+        margin: 5px;
+    }
+</style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
     // $(document).ready(function(){
+    //$('#n,#w,#e,#s').on('click', function (e) {
+        $('#move').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'move.php',
+            data: $('#move').serialize(),
+            success: function (response) {
+                //alert(response);
+                //$("#logged-panel").load(" #logged-panel");
+                //location.reload();
+            }
+        });
+
+    });
+    /*
     $('#n,#w,#e,#s').on('click', function () {
-        let url = 'tank.iai.ninja/api/make-move.php';
+        let url = 'http://localhost/tank/startgame.php';
         let dir = $(this).val();
         let dist = $("#distance").val();
         let fire = $("#fire").val();
@@ -58,6 +112,7 @@ Strzelac?(true/false):<input type="text" id="fire"><br>
             }
         });
     });
+    */
     $('#start').on('click', function () {
         $.ajax({
             method: "GET",
