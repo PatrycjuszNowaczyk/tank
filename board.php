@@ -1,3 +1,8 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="table.css">
+</head>
+</html>
 <?php
 $ch = curl_init('http://tank.iai.ninja/api/get-current-board.php');
 curl_setopt($ch, CURLOPT_URL, "http://tank.iai.ninja/api/get-current-board.php");
@@ -56,8 +61,7 @@ $color = 'white';
             $style = $gameBoardNew[$id];
 //$style
 // var_Dump($id );
-            $table .= '<td id="'. $id . '_'.'" class="' . $class . '" style="width: 25px; height: 25px;  border-collapse: collapse; border: 1px solid black; vertical-align: ';
-            $table .= 'top">' . $tablica[$col][$row] . '</td>';
+            $table .= '<td id="'. $id . '_'.'" class="' . $class . '">' . $tablica[$col][$row] . '</td>';
         }
         $table .= "</tr>";
     }
