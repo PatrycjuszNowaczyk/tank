@@ -11,6 +11,12 @@ $gameBoardSize = $response['settings']['boardSize'];
 $gameBoard = $response['board'];
 $gameBoardNew = array();
 $gamers = array();
+
+$gamePlayer = $response['players'];
+foreach($gamePlayer as $gp){
+    echo $gp['name'];
+    echo '  Punkty: '.$gp['score'].'<br>';
+}
 foreach ($gameBoard as $val) {
     $gameBoardNew[$val['position']] = $val['type'];
     if (isset($val['name'])) {
