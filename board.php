@@ -57,8 +57,6 @@
 	
     $table .= "</table>";
 
-    $table .= str_repeat("<br>", 1);
-
     echo $table;
 
 
