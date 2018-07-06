@@ -1,5 +1,20 @@
+td {
+  width: 25px;
+  height: 25px;
+  border-collapse: collapse;
+  border: 1px solid black;
+  vertical-align: top;
+}
+.player{
+background-color: red;
+}
+
+.player_base{
+background-image:url(brick.png);
+}
+
 .obstacle {
-    background-image: url(/brick.png);
+    background-image: url(brick.png);
     background-color: black;
     width: 25px;
     height: 25px;
