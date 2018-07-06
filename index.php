@@ -15,8 +15,6 @@
     <div id="show2">
     </div>
     <br><br><br>
-    <iframe src="http://tank.iai.ninja/board.php" width="600px" height="600px"></iframe>
-
     <form action="POST" name="move" id="move">
         <table>
             <tr>
