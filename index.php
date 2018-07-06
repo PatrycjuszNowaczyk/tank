@@ -33,10 +33,18 @@ if (isset($_GET['board'])) {
         $gameId = $response['id'];
         $gameName = $response['name'];
         $gameBoardSize = $response['settings']['boardSize'];
+
+        $gameBoard = $response['board'];
+
+        ?><table><tr><?php
+        foreach($gameBoard as $gb){
+            echo '<td>'.$gb['position'].'</td>';
+        }
+        ?></tr></table><?php
         echo 'Nazwa gry: ' . $gameName . '<br>';
         echo 'plansza:' . $gameBoardSize;
 
-
+        //require_once('siatka.php');
     }
 }
 ?>
