@@ -9,7 +9,6 @@
 	$gameId = $response['id'];
 	$gameName = $response['name'];
 	$gameBoardSize = $response['settings']['boardSize'];
-	$size=$gameBoardSize;
 	$gameBoard = $response['board'];
 	$gameBoardNew = array();
 	$gamers = array();
