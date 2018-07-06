@@ -49,8 +49,7 @@
             $id = $col . $row;
             $style = $gameBoardNew[$id];
 
-            $table .= '<td id="'. $id . '_'.'" class="' . $class . '" style="width: 25px; height: 25px;  border-collapse: collapse; border: 1px solid black; vertical-align: ';
-            $table .= 'top">' . $tablica[$col][$row] . '</td>';
+            $table .= '<td id="'. $id . '_'.'" class="' . $style  '">' . $tablica[$col][$row] . '</td>';
         }
         $table .= "</tr>";
     }
