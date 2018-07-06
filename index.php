@@ -16,7 +16,6 @@
 <iframe src="http://tank.iai.ninja/board.php" width="600px" height="600px"></iframe>
 
 <form action="POST" name="move" id="move">
-<<<<<<< HEAD
     <table>
         <tr>
             <td></td>
@@ -42,33 +41,6 @@
             <td></td>
         </tr>
     </table>
-=======
-<table>
-    <tr>
-        <td></td>
-        <td>
-            <input type="button" value="n" id="n">N</input>
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>
-          <td></td>
-            <button type="button" id="w" value="w">W</button>
-        </td>
-        <td>
-            <button type="button" id="e" value="e">E</button>
-        </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            <button type="button" id="s" value="s">S</button>
-        </td>
-        <td></td>
-    </tr>
-</table>
->>>>>>> 93d582bf758887a3bf2da4c49f9794a69640f5e1
     Kierunek:<input type="text" name="direction"><br>
     Klucz:<input type="text" name="key"><br>
     Dystans:
@@ -119,6 +91,14 @@
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
+    setInterval(function(){
+        $.ajax({
+            method: "GET",
+            url: "http://localhost/tank/board.php", success: function (result) {
+                $('#show2').html(result);
+            }
+        });
+        }, 1000);
     $('#move').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
