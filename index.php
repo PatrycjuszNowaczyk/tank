@@ -59,6 +59,7 @@
         body {
             color: #555659;
             background-color: #f2f1f0;
+            padding: 20px;
         }
         
         button {
