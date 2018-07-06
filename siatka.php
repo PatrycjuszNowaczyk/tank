@@ -16,11 +16,10 @@ function createBoard($size) {
     $table = '';
 
     $table .= '<table style="border-collapse: collapse">';
-    //foreach (range(1, $size) as $col) {
-        foreach($gameBoard as $col){
+    foreach (range(1, $size) as $row) {
         $table .= "<tr>";
-        foreach (range('A', chr($size-1+ord('A'))) as $row => $val) {
-            $tablica[$col][$row] = $col . $val;
+        foreach (range('A', chr($size-1+ord('A'))) as $col) {
+            $tablica[$col][$row] = $col . $row;
             $table .= '<td style="width: 25px; height: 25px;  border-collapse: collapse; border: 1px solid black; vertical-align: ';
             $table .= 'top">' . $tablica[$col][$row] . '</td>';
         }
@@ -53,8 +52,9 @@ function createBoard($size) {
 }
 
 
-
 createBoard($gameBoardSize);
+//createBoard(20);
+
 ?>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
