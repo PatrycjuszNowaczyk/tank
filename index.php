@@ -26,9 +26,9 @@
     </tr>
     <tr>
         <td>
+          <td></td>
             <button type="button" id="w" value="w">W</button>
         </td>
-        <td></td>
         <td>
             <button type="button" id="e" value="e">E</button>
         </td>
