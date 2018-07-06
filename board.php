@@ -14,10 +14,9 @@
 	foreach ($gameBoard as $val) {
 		$gameBoardNew[$val['position']] = $val['type'];
 		if(isset($val['name'])){
-      $gamers[] = $val['name'];
+      $gamers['location'] = $val['name'];
     }
 	}
-
 
 	$gamers = array_unique($gamers);
 
@@ -44,7 +43,16 @@
             $tablica[$col][$row] = $col . $row;
             $id = $col . $row;
             $style = $gameBoardNew[$id];
-            $table .= '<td id="'. $id . '_'.'" class="' . $style . '">' . '</td>';
+            $gamerNumber = 1;
+            if (isset($gamers[$id])) {
+              $gamerStyle = 'player' . $gamerNumber;
+              $gamerNumber++;
+            }
+            else {
+              $gamerStyle = "";
+            }
+
+            $table .= '<td id="'. $id . '_'.'" class="' . $style . ' ' . $gamerStyle . '">' . '</td>';
         }
         $table .= "</tr>";
     }

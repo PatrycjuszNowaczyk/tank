@@ -9,8 +9,12 @@ td {
 background-color: red;
 }
 
+.player1{
+  background-color: blue;
+}
+
 .player_base{
-background-image:url(brick.png);
+background-color: #578463;
 }
 
 .obstacle {
@@ -27,6 +31,9 @@ background-image:url(brick.png);
     width: 25px;
     height: 25px;
     text-align: center;}
+.missile{
+  background-color: #555555;
+}
 
 .empty {
     background-color: white;
